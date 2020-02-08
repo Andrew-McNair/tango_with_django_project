@@ -22,9 +22,10 @@ def index(request):#calls your main page
     
 
 def about(request):
-    context_dict={'boldmessage':  'This tutorial has been put together by ACM.' }
-    #render the appropriate template
-    return render(request,'rango/about.html',context=context_dict)
+    print(request.method)
+    # prints out the user name, if no one is logged in it prints `AnonymousUser`
+    print(request.user)
+    return render(request, 'rango/about.html', {})
     
 def add_category(request):
     form = CategoryForm()
